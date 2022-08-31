@@ -39,19 +39,14 @@ CREATE TABLE IF NOT EXISTS obitos(
 
 
 
-CREATE TABLE IF NOT EXISTS obitos(
-id serial PRIMARY KEY,
-obs text);
+ALTER TABLE consultas  
+   ADD CONSTRAINT FkEspecialidadeDaConsulta
+      FOREIGN KEY (especialidade_id) REFERENCES especialidades (ID);
 
 
-ALTER TABLE `consultas`  
-   ADD CONSTRAINT `FkEspecialidadeDaConsulta` 
-      FOREIGN KEY (`especialidade_id`) REFERENCES `especialidades` (`ID`);
-
-
-ALTER TABLE `consultas`  
-   ADD CONSTRAINT `FkProfissionalDaConsulta` 
-      FOREIGN KEY (`profiss_id`) REFERENCES `profissionais` (`ID`);
+ALTER TABLE consultas  
+   ADD CONSTRAINT FkProfissionalDaConsulta 
+      FOREIGN KEY (profiss_id) REFERENCES profissionais (ID);
 
 ----------------------------------------------------------------------------------
 
